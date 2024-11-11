@@ -4,5 +4,4 @@ export interface Verse {
   book: string;
   chapter: number;
   verse_number: number;
-  userId: number;
 }

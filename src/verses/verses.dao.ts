@@ -22,29 +22,3 @@ export const getVerseText = async (id: number): Promise<Verse | null> => {
   const rows = await execute<Verse[]>(verseQueries.getVerseText, [id]);
   return rows.length > 0 ? rows[0] : null;
 };
-
-export const createVerse = async (verse: Verse): Promise<OkPacket> => {
-  return execute<OkPacket>(verseQueries.createVerse, [
-    verse.verse_text,
-    verse.book,
-    verse.chapter,
-    verse.verse_number,
-  ]);
-};
-
-export const updateVerse = async (
-  id: number,
-  verse: Verse
-): Promise<OkPacket> => {
-  return execute<OkPacket>(verseQueries.updateVerse, [
-    verse.verse_text,
-    verse.book,
-    verse.chapter,
-    verse.verse_number,
-    id,
-  ]);
-};
-
-export const deleteVerse = async (id: number): Promise<OkPacket> => {
-  return execute<OkPacket>(verseQueries.deleteVerse, [id]);
-};
