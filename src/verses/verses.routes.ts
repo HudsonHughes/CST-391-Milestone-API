@@ -10,8 +10,5 @@ router.get(
   VersesController.getVersesByChapter
 );
 router.get("/verses/:id", VersesController.getVerseText);
-router.post("/verses", VersesController.createVerse);
-router.put("/verses/:id", VersesController.updateVerse);
-router.delete("/verses/:id", VersesController.deleteVerse);
 
 export default router;
