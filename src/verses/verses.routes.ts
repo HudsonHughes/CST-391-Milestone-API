@@ -10,7 +10,7 @@ router.get(
   VersesController.getVersesByChapter
 );
 router.get(
-  "/verses/books/:book/chapters/:chapter/verses/:verse",
+  "/verses/books/:book/chapters/:chapter/verses/:verse_number",
   VersesController.getVerseByReference
 );
 router.get("/verses/:id", VersesController.getVerseText);
