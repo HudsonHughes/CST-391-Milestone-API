@@ -22,8 +22,8 @@ export const getVerseByReference = async (
   book: string,
   chapter: number,
   verse_number: number
-): Promise<Verse[]> => {
-  return execute<Verse[]>(verseQueries.getVerseByReference, [book, chapter, verse_number]);
+): Promise<Verse> => {
+  return execute<Verse>(verseQueries.getVerseByReference, [book, chapter, verse_number]);
 };
 
 export const getVerseText = async (id: number): Promise<Verse | null> => {
