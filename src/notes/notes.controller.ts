@@ -9,7 +9,8 @@ export const getNotesByVerse: RequestHandler = async (
 ) => {
   try {
     const { id } = req.params;
-    const notes = await NoteDao.getNotesByVerse(Number(id));
+    const userId = req.query.userId ? Number(req.query.userId) : null; // Accept userId as a query parameter
+    const notes = await NoteDao.getNotesByVerse(Number(id), userId);
     res.status(200).json(notes);
   } catch (error) {
     console.error("[notes.controller][getNotesByVerse][Error] ", error);
@@ -18,6 +19,7 @@ export const getNotesByVerse: RequestHandler = async (
     });
   }
 };
+
 
 export const createNote: RequestHandler = async (
   req: Request,

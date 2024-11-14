@@ -7,7 +7,7 @@ import {
 
 export const noteQueries = {
   getNotesByVerse: `SELECT * FROM notes WHERE verseId = ?`,
-  createNote: `INSERT INTO notes (noteText, verseId) VALUES (?, ?)`,
+  createNote: `INSERT INTO notes (noteText, verseId, userId) VALUES (?, ?, ?)`,
   updateNote: `UPDATE notes SET noteText = ?, verseId = ? WHERE id = ?`,
   deleteNote: `DELETE FROM notes WHERE id = ?`,
 };

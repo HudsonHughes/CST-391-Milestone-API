@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import notesRouter from "./notes/notes.routes";
 import versesRouter from "./verses/verses.routes";
+import usersRouter from "./users/users.routes";
 import cors from "cors";
 import helmet from "helmet";
 import logger from "./middleware/logger.middleware";
@@ -28,7 +29,7 @@ if (process.env.NODE_ENV == "development") {
 app.get("/", (req: Request, res: Response) => {
   res.send("<h1>Welcome to the Hudson's Bible API</h1>");
 });
-app.use("/", [notesRouter, versesRouter]);
+app.use("/", [notesRouter, versesRouter, usersRouter]);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
