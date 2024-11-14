@@ -1,5 +1,5 @@
 export interface Verse {
-  id: string;
+  id: number;
   verse_text: string;
   book: string;
   chapter: number;
