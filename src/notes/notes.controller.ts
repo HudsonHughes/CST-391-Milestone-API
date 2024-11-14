@@ -20,6 +20,20 @@ export const getNotesByVerse: RequestHandler = async (
   }
 };
 
+export const getNotesByUserId: RequestHandler = async (req: Request, res: Response) => {
+  try {
+    const userId = req.query.userId ? Number(req.query.userId) : null;
+
+    const notes = await NoteDao.getNotesByUserId(userId);
+    res.status(200).json(notes);
+  } catch (error) {
+    console.error("[notes.controller][getNotesByUserId][Error] ", error);
+    res.status(500).json({
+      message: "There was an error when fetching notes by userId",
+    });
+  }
+};
+
 
 export const createNote: RequestHandler = async (
   req: Request,

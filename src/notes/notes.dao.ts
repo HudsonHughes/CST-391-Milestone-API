@@ -16,6 +16,11 @@ export const getNotesByVerse = async (verseId: number, userId: number | null): P
   return execute<Note[]>(query, params);
 };
 
+// Fetch notes by userId
+export const getNotesByUserId = async (userId: number | null): Promise<Note[]> => {
+  return execute<Note[]>(noteQueries.getNotesByUserId, [userId]); // Execute query to fetch notes by userId
+};
+
 export const createNote = async (note: Note): Promise<OkPacket> => {
   return execute<OkPacket>(noteQueries.createNote, [
     note.noteText,

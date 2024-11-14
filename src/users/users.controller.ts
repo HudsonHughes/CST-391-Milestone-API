@@ -50,6 +50,6 @@ export const loginUser: RequestHandler = async (
     console.error("[users.controller][loginUser][Error] ", error);
     res.status(500).json({
       message: "There was an error when logging in the user",
-    });
+    }); 
   }
 };
