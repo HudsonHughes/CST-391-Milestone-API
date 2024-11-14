@@ -9,6 +9,10 @@ router.get(
   "/verses/books/:book/chapters/:chapter",
   VersesController.getVersesByChapter
 );
+router.get(
+  "/verses/books/:book/chapters/:chapter/verses/:verse",
+  VersesController.getVerseByReference
+);
 router.get("/verses/:id", VersesController.getVerseText);
 
 export default router;

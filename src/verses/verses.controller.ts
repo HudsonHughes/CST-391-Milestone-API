@@ -1,5 +1,4 @@
 import { Request, RequestHandler, Response } from "express";
-import { Verse } from "./verses.model";
 import * as VerseDao from "./verses.dao";
 import { OkPacket } from "mysql";
 
@@ -46,6 +45,22 @@ export const getVersesByChapter: RequestHandler = async (
     console.error("[verses.controller][getVersesByChapter][Error] ", error);
     res.status(500).json({
       message: "There was an error when fetching verses by chapter",
+    });
+  }
+};
+
+export const getVerseByReference: RequestHandler = async (
+  req: Request,
+  res: Response
+) => {
+  try {
+    const { book, chapter, verse_number } = req.params;
+    const verse = await VerseDao.getVerseByReference(book, Number(chapter), Number(verse_number));
+    res.status(200).json(verse);
+  } catch (error) {
+    console.error("[verses.controller][getVerseByReference][Error] ", error);
+    res.status(500).json({
+      message: "There was an error when fetching verse by reference",
     });
   }
 };

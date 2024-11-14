@@ -18,6 +18,14 @@ export const getVersesByChapter = async (
   return execute<Verse[]>(verseQueries.getVersesByChapter, [book, chapter]);
 };
 
+export const getVerseByReference = async (
+  book: string,
+  chapter: number,
+  verse_number: number
+): Promise<Verse[]> => {
+  return execute<Verse[]>(verseQueries.getVerseByReference, [book, chapter, verse_number]);
+};
+
 export const getVerseText = async (id: number): Promise<Verse | null> => {
   const rows = await execute<Verse[]>(verseQueries.getVerseText, [id]);
   return rows.length > 0 ? rows[0] : null;
